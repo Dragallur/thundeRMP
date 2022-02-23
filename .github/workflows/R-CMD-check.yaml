@@ -64,6 +64,7 @@ jobs:
         
       - name: Install dependencies
         run: |
+          export PATH=$PATH:/opt/R-devel/bin
           options(repos = "https://cloud.r-project.org")
           install.packages(c("XML", "httr", "curl","dplyr", "tidyr",
           "rmarkdown", "maps",  "climate", "roxygen2", "data.table", "devtools"))
@@ -72,5 +73,6 @@ jobs:
       - name: check clang on R-devel
         run: |
           ln -sf /opt/R-devel/bin/R* /usr/bin 
+          which R
           #R -e 'sessionInfo()'
         shell: bash
