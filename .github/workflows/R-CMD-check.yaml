@@ -35,10 +35,12 @@ jobs:
       - run: |
           pwd
           ls -alh
-          R CMD INSTALL thunder
+          R CMD INSTALL .
         shell: bash
       
-      - run: Rscript -e 'print(1)'
+      - name: Test R print
+        run: Rscript -e 'installed.packages()'
+        shell: bash
 
       - name: Test coverage
         run: covr::codecov()
