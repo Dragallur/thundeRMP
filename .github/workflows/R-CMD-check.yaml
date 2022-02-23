@@ -109,3 +109,7 @@ jobs:
           R -d valgrind --vanilla < thunder.Rcheck/thunder-Ex.R
         shell: bash
         
+      - name: valgrind as on CRAN with memcheck
+        run: |
+          R -d "valgrind --tool=memcheck --leak-check=full" --vanilla < thunder.Rcheck/thunder-Ex.R
+        
