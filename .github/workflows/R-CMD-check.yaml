@@ -32,10 +32,13 @@ jobs:
       - uses: actions/checkout@v1
 
       #- run: R CMD INSTALL ${{ github.event.repository.name }}
-      - run: R CMD INSTALL thunder
+      - run: |
+          pwd
+          ls -alh
+          R CMD INSTALL thunder
         shell: bash
       
-      - run: Rscript -e 'rmarkdown::render("report.Rmd")'
+      - run: Rscript -e 'print(1)'
 
       - name: Test coverage
         run: covr::codecov()
