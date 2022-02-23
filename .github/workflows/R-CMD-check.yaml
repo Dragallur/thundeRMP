@@ -50,6 +50,12 @@ jobs:
           apt-get clean && apt-get update
           apt-get -y install valgrind
           R -d valgrind -e "Rcpp::sourceCpp('src/main.cpp')"
+      
+      - name: Valgrind + rocker detailed
+        run: |
+           R -d valgrind --leak-check=full --show-reachable=yes --track-origins=yes \
+            -e 'Rcpp::sourceCpp("src/main.cpp")'
+        shell: bash
         
   docker-rhub-debian-clang:
     runs-on: ubuntu-latest
