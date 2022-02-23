@@ -74,6 +74,5 @@ jobs:
       - name: Install dependencies
         run: |
           options(repos = "https://cloud.r-project.org")
-          install.packages(c("XML", "httr", "curl","dplyr", "tidyr",
-          "rmarkdown", "maps",  "climate", "roxygen2", "data.table", "devtools"))
-        shell: /opt/R-devel/bin/Rscript {0}
+          install.packages(c("XML", "httr", "curl","dplyr", "tidyr", "rmarkdown", "maps",  "climate", "roxygen2", "data.table", "devtools"))
+        shell: Rscript {0}
