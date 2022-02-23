@@ -53,8 +53,9 @@ jobs:
       
       - name: Valgrind + rocker detailed
         run: |
-           R -d valgrind --leak-check=full --show-reachable=yes --track-origins=yes \
-            -e 'Rcpp::sourceCpp("src/main.cpp")'
+           R -d "valgrind --leak-check=full \
+           --show-reachable=yes \
+           --track-origins=yes"  -e 'Rcpp::sourceCpp("main.cpp")'
         shell: bash
         
   docker-rhub-debian-clang:
