@@ -30,6 +30,9 @@ jobs:
     #  image: ghcr.io/bczernecki/rstudio_412:latest
     steps:
       - uses: actions/checkout@v1
+      
+      - name: Install thundeR dependencies
+        run: R -e '(install.packages(c("climate", "aiRthermo"))'
 
       #- run: R CMD INSTALL ${{ github.event.repository.name }}
       - run: |
