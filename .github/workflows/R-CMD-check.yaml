@@ -93,6 +93,11 @@ jobs:
       
       - name: Install thundeR dependencies
         run: R -e 'install.packages(c("climate", "aiRthermo", "RadioSonde", "covr"))'
+        
+      - name: Install TeX
+        run: |
+          apt-get update
+          apt-get install -y texlive-fonts-recommended
 
       - name: valgrind as on CRAN
         run: |
