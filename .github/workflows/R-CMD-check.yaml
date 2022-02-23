@@ -85,7 +85,6 @@ jobs:
           install.packages(c("XML", "httr", "curl","dplyr", "tidyr", "rmarkdown", "maps",  "climate", "roxygen2", "data.table", "devtools"))
         shell: Rscript {0}
 
-  
   rocker-verse-valgrind:
     runs-on: ubuntu-latest
     container: rocker/verse
@@ -96,7 +95,7 @@ jobs:
         run: R -e 'install.packages(c("climate", "aiRthermo"))'
 
       - name: valgrind as on CRAN
-      - run: |
+        run: |
           apt-get clean && apt-get update
           apt-get -y install valgrind
           R CMD INSTALL .
@@ -104,4 +103,4 @@ jobs:
           R CMD check *tar.gz
           R -d valgrind --vanilla < thunder.Rcheck/thunder-Ex.R
         shell: bash
-      
+        
