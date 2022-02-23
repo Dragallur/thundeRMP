@@ -56,10 +56,9 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - name: check clang on R-devel
+      - name: symbolic link for clang on R-devel
         run: |
-          ln -sf /opt/R-devel/bin/R* 
-          /usr/bin 
+          ln -sf /opt/R-devel/bin/R* /usr/bin 
           which R
           #R -e 'sessionInfo()'
         shell: bash
