@@ -48,3 +48,16 @@ jobs:
       - name: Test coverage
         run: install.packages("covr"); covr::codecov()
         shell: Rscript {0}
+        
+  docker-my-own:
+    runs-on: ubuntu-latest
+    container: 
+      image: rhub/debian-clang-devel:latest
+    steps:
+      - uses: actions/checkout@v1
+      
+      - name: check clang on R-devel
+        run: |
+          ln -sf /opt/R-devel/bin/R* /usr/bin 
+          R -e 'sessionInfo()'
+        shell: bash
