@@ -41,10 +41,10 @@ jobs:
           R CMD INSTALL .
         shell: bash
       
-      - name: Test R print
-        run: Rscript -e 'installed.packages()'
+      - name: Show installed packages
+        run: Rscript -e 'installed.packages()[, 1:3]'
         shell: bash
 
       - name: Test coverage
-        run: covr::codecov()
+        run: install.packages("covr"); covr::codecov()
         shell: Rscript {0}
