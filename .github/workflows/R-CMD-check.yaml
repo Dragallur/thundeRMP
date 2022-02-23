@@ -99,7 +99,7 @@ jobs:
           apt-get clean && apt-get update
           apt-get -y install valgrind
           R CMD INSTALL .
-          R CMD BUILD .
+          R CMD build .
           R CMD check *tar.gz
           R -d valgrind --vanilla < thunder.Rcheck/thunder-Ex.R
         shell: bash
