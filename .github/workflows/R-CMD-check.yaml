@@ -25,10 +25,14 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     container: rocker/verse
+    #or
+    #container:
+    #  image: ghcr.io/bczernecki/rstudio_412:latest
     steps:
       - uses: actions/checkout@v1
 
-      - run: R CMD INSTALL ${{ github.event.repository.name }}
+      #- run: R CMD INSTALL ${{ github.event.repository.name }}
+      - run: R CMD INSTALL thunder
         shell: bash
       
       - run: Rscript -e 'rmarkdown::render("report.Rmd")'
