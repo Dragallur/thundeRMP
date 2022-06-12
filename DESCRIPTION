@@ -1,4 +1,4 @@
-Package: thundermp
+Package: thunder
 Type: Package
 Title: Computation and Visualisation of Atmospheric Convective Parameters
 Version: 0.3.0
